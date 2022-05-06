@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Serialize and Deserialize Binary Tree(leetcode) &&&&   gfg in given below</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--gx2d5eni--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-28 06:43:22--DATECREATED-->
+    <!--DATEUPDATED--2022-04-28 06:59:24--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>Serialize and Deserialize Binary Tree(leetcode) &&&&   gfg in given below</h2>
+<anotepad><pre>  // Encodes a tree to a single string.
+    string serialize(TreeNode* root) {
+        string res="";
+        if(!root)
+        {
+            return res;
+        }
+        queue<TreeNode*>q;
+        q.push(root);
+        while(!q.empty())
+        {
+            int s=q.size();
+            for(int i=0;i<s;i++){
+            TreeNode* t=q.front();
+                q.pop();
+                if(t==NULL)
+                {
+                    res.append("#,");
+                }
+                else{
+                    res.append(to_string(t->val)+',');
+                }
+                if(t!=NULL)
+                {
+                
+                    q.push(t->left);
+                        q.push(t->right);
+                }
+            }
+        }
+        return res;
+    }
+
+    // Decodes your encoded data to tree.
+    TreeNode* deserialize(string data) {
+        if(data.size()==0)
+        {
+            return NULL;
+        }
+        stringstream res(data);
+        string str;
+        getline(res,str,',');
+        TreeNode* root=new TreeNode(stoi(str));
+        queue<TreeNode*>q;
+        q.push(root);
+        while(!q.empty())
+        {
+            TreeNode* t=q.front();
+            q.pop();
+            getline(res,str,',');
+            if(str=="#")
+            {
+                t->left=NULL;
+            }
+            else{
+                TreeNode* leftn=new TreeNode(stoi(str));
+                t->left=leftn;
+                q.push(leftn);
+            }
+            getline(res,str,',');
+            if(str=="#")
+            {
+                t->right=NULL;
+            }
+            else{
+                TreeNode* rightn=new TreeNode(stoi(str));
+                t->right=rightn;
+                q.push(rightn);
+            }
+        }
+        return root;
+    }
+
+
+GFG:
+
+  vector<int> serialize(Node *root) 
+    {
+        vector<int>v;
+        if(!root)
+        {
+            v.push_back(-1);
+            return v;
+        }
+        queue<Node*>q;
+        q.push(root);
+        while(!q.empty())
+        {
+            int s=q.size();
+            for(int i=0;i<s;i++){
+            Node* t=q.front();
+            q.pop();
+            if(t==NULL)
+            {
+                v.push_back(-1);
+            }
+            else{
+             v.push_back(t->data);   
+            }
+            if(t!=NULL)
+            {
+                 q.push(t->left);
+                 q.push(t->right);
+            }
+            }
+        }
+        return v;
+    }
+    int i=0;
+    //Function to deserialize a list and construct the tree.
+    Node * deSerialize(vector<int> &A)
+    {
+        if(i==A.size())
+        {
+            return NULL;
+        }
+        int val=A[i];
+        i++;
+      if(val==-1)
+      {
+          return NULL;
+      }
+      Node* root=new Node(val);
+      queue<Node*>q;
+      q.push(root);
+      int i=1;
+      while(!q.empty())
+      {
+          Node* t1=q.front();
+          q.pop();
+          int neww=A[i++];
+          if(neww==-1)
+          {
+              t1->left=NULL;
+          }
+          else{
+              Node* leftn=new Node(neww);
+              t1->left=leftn;
+              q.push(leftn);
+          }
+          neww=A[i++];
+          if(neww==-1)
+          {
+              t1->right=NULL;
+          }
+          else{
+              Node* rightn= new Node(neww);
+               t1->right=rightn;
+              q.push(rightn);
+          }
+      }
+      return root;
+    }
+</pre></anotepad>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Ceil in a Binary Search Tree && Floor in BST</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--4ksyj38c--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-28 16:29:29--DATECREATED-->
+    <!--DATEUPDATED--2022-04-30 06:25:21--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>Ceil in a Binary Search Tree && Floor in BST</h2>
+<anotepad><pre>time:O(h)====>O(log2N)
+int findCeil(BinaryTreeNode<int> *node, int x){
+	int c=-1;
+   while(node)
+   {
+	   if(node->data==x)
+	   {
+		   c=node->data;
+		   return c;
+	   }
+	   else{
+		   if(node->data>x)
+		   {
+			   c=node->data;
+			   node=node->left;
+		   }
+		   else{
+			    node=node->right;
+		   }
+		  
+	   }
+   }
+	
+	return c;
+	
+
+-------------------------------------------------------------------------------------------->>>>>>>>>
+Floor:
+
+int floorInBST(TreeNode<int> * root, int X)
+{
+	int c=-1;
+	while(root)
+	{
+		if(root->val==X)
+		{
+			return root->val;
+		}
+		else{
+			if(root->val>X)
+			{
+				root=root->left;
+			}
+			else{
+				c=root->val;
+				root=root->right;
+			}
+		}
+	}
+	return c;
+}
+
+
+</pre></anotepad>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Recover Binary Search Tree</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--f9k8p2nn--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-30 11:01:12--DATECREATED-->
+    <!--DATEUPDATED--2022-04-30 11:12:40--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>Recover Binary Search Tree</h2>
+<anotepad><pre>Brute: O(2n+nlogn) 
+space:O(n)
+
+ int i=0;
+    void solve(vector<int>&v,TreeNode* root)
+    {
+        if(!root)
+        {
+            return;
+        }
+        solve(v,root->left);
+        v.push_back(root->val);
+        solve(v,root->right);
+    }
+    void solve1(TreeNode* root,vector<int>&v)
+    {
+        if(!root)
+        {
+            return;
+        }
+        solve1(root->left,v);
+        if(root->val!=v[i])
+        {
+            root->val=v[i];
+        }
+        i++;
+        solve1(root->right,v);
+    }
+    void recoverTree(TreeNode* root) {
+        vector<int>v;
+        solve(v,root);
+       sort(v.begin(),v.end());
+        solve1(root,v);
+    }
+
+optimal:---------------------
+time:O(n)
+space:O(1)
+
+</pre></anotepad>
+</body>
+</html>

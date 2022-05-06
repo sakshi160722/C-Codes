@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Construct a BST from a preorder traversal</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--ierm9r2w--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-29 17:13:00--DATECREATED-->
+    <!--DATEUPDATED--2022-04-29 17:27:58--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>Construct a BST from a preorder traversal</h2>
+<anotepad><pre>BRUTE:----------------------------------
+time=O(nlogn)
+space=O(n)
+
+ TreeNode* bst(vector<int>& preorder,int prestart,int preend, vector<int>&inorder,int instart,int inend, map<int,int>&mp)
+    {
+        if(prestart>preend || instart>inend)
+        {
+           return NULL;
+        }
+        TreeNode* root=new TreeNode(preorder[prestart]);
+        int inroot=mp[root->val];
+        int diff=inroot-instart;
+        root->left=bst(preorder,prestart+1,prestart+diff,inorder,instart,inroot-1,mp);
+        root->right=bst(preorder,prestart+diff+1,preend,inorder,inroot+1,inend,mp);
+        return root;
+    }
+    TreeNode* bstFromPreorder(vector<int>& preorder) {
+        vector<int>inorder;
+        for(int i=0;i<preorder.size();i++)
+        {
+            inorder.push_back(preorder[i]);
+        }
+      sort(inorder.begin(),inorder.end());
+        map<int,int>mp;
+        for(int i=0;i<inorder.size();i++)
+        {
+            mp[inorder[i]]=i;
+        }
+        TreeNode* root=bst(preorder,0,preorder.size()-1,inorder,0,inorder.size()-1,mp);
+        return root;
+    }
+OPTIMAL:-------------
+
+time:O(n)
+space O(1)
+TreeNode* bst(int &i,int bound,vector<int>& preorder)
+    {
+       if(i==preorder.size()||bound<preorder[i])
+       {
+           return NULL;
+       }
+        TreeNode* root=new TreeNode(preorder[i]);
+        i++;
+        root->left=bst(i,root->val,preorder);
+        root->right=bst(i,bound,preorder);
+        return root;
+    }
+    TreeNode* bstFromPreorder(vector<int>& preorder) {
+       int i=0;
+        return bst(i,INT_MAX,preorder);
+    }</pre></anotepad>
+</body>
+</html>

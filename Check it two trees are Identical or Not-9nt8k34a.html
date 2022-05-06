@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Check it two trees are Identical or Not</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--9nt8k34a--NUMBER-->
+    <!--TYPE--RichText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-18 13:34:29--DATECREATED-->
+    <!--DATEUPDATED--2022-04-18 13:57:58--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>Check it two trees are Identical or Not</h2>
+<anotepad><p>check if one tree left root right is same as the other tree:</p>
+<p>if it's identical return TRUE else return FALSE:</p>
+<p><a title="codestudio" href="https://www.codingninjas.com/codestudio/problems/identical-trees_799364?source=youtube&amp;amp;campaign=Striver_Tree_Videos&amp;amp;utm_source=youtube&amp;amp;utm_medium=affiliate&amp;amp;utm_campaign=Striver_Tree_Videos">https://www.codingninjas.com/codestudio/problems/identical-trees_799364?source=youtube&amp;amp;campaign=Striver_Tree_Videos&amp;amp;utm_source=youtube&amp;amp;utm_medium=affiliate&amp;amp;utm_campaign=Striver_Tree_Videos</a></p>
+<p>&nbsp;</p>
+<p>appoach: check if root1-&gt;val == root2-&gt;val &amp;&amp; then compare both trees left node &amp;&amp; then compare both tree right nodes&nbsp;</p>
+<p>and one base case is that is any one root is NULL so return true if both are NULL else false;</p>
+<p>&nbsp;</p>
+<p>Example:<span style="color: var(--block-color); font-size: 13px; letter-spacing: 0.23px; white-space: pre-wrap;">5 2 3 -1 6 -1 -1 -1 -1</span></p>
+<p><code style="margin: 0px; padding: 0px; font-weight: 400; letter-spacing: 0.23px; color: var(--block-color); background: var(--block-bg); font-size: 13px;">5 2 3 -1 6 -1 -1 -1 -1<br />&nbsp;O/P:TRUE</code><code style="margin: 0px; padding: 0px; font-weight: 400; letter-spacing: 0.23px; color: var(--block-color); background: var(--block-bg); font-size: 13px;"></code></p>
+<hr />
+<p>CODE:</p>
+<p>bool identicalTrees(BinaryTreeNode&lt;int&gt;* root1, BinaryTreeNode&lt;int&gt;* root2) {</p>
+<p>if(root1==NULL || root2==NULL)</p>
+<p>{</p>
+<p>return (root1==root2);</p>
+<p>}</p>
+<p>return (root1-&gt;data==root2-&gt;data)&amp;&amp; identicalTrees(root1-&gt;left,root2-&gt;left) &amp;&amp; identicalTrees(root1-&gt;right,root2-&gt;right);</p>
+<p>&nbsp;</p>
+<p>}</p></anotepad>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>inorder  traversal(DFS)(Approach Recursive) ,Preorder traversal(DFS)(Approach Recursive),Postorder traversal(DFS)(Approach Recursive)</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--3jh5xx8g--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-17 11:07:24--DATECREATED-->
+    <!--DATEUPDATED--2022-04-17 12:09:17--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>inorder  traversal(DFS)(Approach Recursive) ,Preorder traversal(DFS)(Approach Recursive),Postorder traversal(DFS)(Approach Recursive)</h2>
+<anotepad><pre>
+void inorder(BinaryTreeNode<int> *root,vector<int>&v1)
+{
+	if(!root)
+	{
+		return;
+	}
+	inorder(root->left,v1);
+	v1.push_back(root->data);
+	inorder(root->right,v1);
+}
+void preorder(BinaryTreeNode<int> *root,vector<int>&v2)
+{
+	if(!root)
+	{
+		return;
+	}
+	v2.push_back(root->data);
+	preorder(root->left,v2);
+	preorder(root->right,v2);
+}
+void postorder(BinaryTreeNode<int> *root,vector<int>&v3)
+{
+	if(!root)
+	{
+		return;
+	}
+	postorder(root->left,v3);
+	postorder(root->right,v3);
+	v3.push_back(root->data);
+}
+vector<vector<int>> getTreeTraversal(BinaryTreeNode<int> *root){
+   vector<vector<int>>ans;
+	vector<int>v1;
+	vector<int>v2;
+	vector<int>v3;
+	
+	inorder(root,v1);
+	preorder(root,v2);
+	postorder(root,v3);
+	
+	ans.push_back(v1);
+	ans.push_back(v2);
+	ans.push_back(v3);
+	return ans;
+	
+}</pre></anotepad>
+</body>
+</html>

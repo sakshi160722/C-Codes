@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>successor in bst Optimal approach (similar to ceil find)</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--t64ksm2g--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-30 05:56:05--DATECREATED-->
+    <!--DATEUPDATED--2022-04-30 06:00:06--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>successor in bst Optimal approach (similar to ceil find)</h2>
+<anotepad><pre>
+Time:O(h)
+space: O(1)
+
+ Node * inOrderSuccessor(Node *root, Node *x)
+    {
+          Node *c=NULL;
+        if(root==NULL)
+        {
+            return c;
+        }
+  
+    while(root)
+    {
+        if(root->data>x->data)
+        {
+            c=root;
+            root=root->left;
+        }
+        else{
+            root=root->right;
+        }
+    }
+    return c;
+    }</pre></anotepad>
+</body>
+</html>

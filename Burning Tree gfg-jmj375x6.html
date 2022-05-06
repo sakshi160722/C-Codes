@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Burning Tree gfg</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--jmj375x6--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-27 12:34:36--DATECREATED-->
+    <!--DATEUPDATED--2022-04-27 12:44:39--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>Burning Tree gfg</h2>
+<anotepad><pre>int solve(map<Node*,Node*>&mp,Node* root, Node* tar)
+  {
+      queue<Node*>q;
+      map<Node*,bool>vis;
+      q.push(tar);
+      vis[tar]=true;
+      int maxi=0;
+      while(!q.empty())
+      {
+          int s=q.size();
+          int f=0;
+          for(int i=0;i<s;i++)
+          {
+              Node* t=q.front();
+              q.pop();
+              if(t->left && vis[t->left]!=true)
+              {
+                  q.push(t->left);
+                  vis[t->left]=true;
+                  f=1;
+}
+              if(t->right && vis[t->right]!=true)
+              {
+                  q.push(t->right);
+                  vis[t->right]=true;
+                  f=1;
+              }
+              if(mp[t] && vis[mp[t]]!=true)
+              {
+                  q.push(mp[t]);
+                  vis[mp[t]]=true;
+                  f=1;
+              }
+          }
+          if(f)
+          {
+              maxi++;
+          }
+      }
+      return maxi;
+}
+  
+  Node* bfs( map<Node*,Node*>&mp,Node* root, int target)
+  {
+      queue<Node*>q;
+      q.push(root);
+      Node* res;
+      while(!q.empty())
+      {
+          Node* src=q.front();
+          q.pop();
+          if(src->data==target)
+          {
+              res=src;
+          }
+          if(src->left)
+          {
+              q.push(src->left);
+ mp[src->left]=src;
+          }
+           if(src->right)
+          {
+              q.push(src->right);
+              mp[src->right]=src;
+          }
+      }
+      return res;
+  }
+  
+    int minTime(Node* root, int target) 
+    {
+       map<Node*,Node*>mp;
+       Node* tar=bfs(mp,root,target);
+       int maxi=solve(mp,root,tar);
+       return maxi;
+    }
+</pre></anotepad>
+</body>
+</html>

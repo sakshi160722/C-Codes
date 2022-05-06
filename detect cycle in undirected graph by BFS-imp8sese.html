@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>detect cycle in undirected graph by BFS</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--imp8sese--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-26 08:34:12--DATECREATED-->
+    <!--DATEUPDATED--2022-04-26 08:34:12--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>detect cycle in undirected graph by BFS</h2>
+<anotepad><pre> bool check(int V, vector<int> adj[], vector<int>&vis,int node,int par)
+  {
+      vis[node]=1;
+      queue<pair<int,int>>q;
+      q.push({node,-1});
+      while(!q.empty())
+      {
+          int node1=q.front().first;
+          int p=q.front().second;
+          q.pop();
+          for(auto it:adj[node1])
+          {
+              if(!vis[it])
+              {
+                  vis[it]=1;
+                  q.push({it,node1});
+              }
+              else if(it!=p)
+              {
+                  return true;
+              }
+          }
+      }
+      return false;
+  }
+    // Function to detect cycle in an undirected graph.
+    bool isCycle(int V, vector<int> adj[]) {
+        vector<int>vis(V,0);
+      for(int i=0;i<V;i++)
+      {
+          if(!vis[i])
+          {
+              if(check(V,adj,vis,i,-1))
+              {
+                  return true;
+              }
+          }
+      }
+      return false;
+    }</pre></anotepad>
+</body>
+</html>

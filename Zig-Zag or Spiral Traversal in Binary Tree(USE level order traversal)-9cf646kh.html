@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Zig-Zag or Spiral Traversal in Binary Tree(USE level order traversal)</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--9cf646kh--NUMBER-->
+    <!--TYPE--RichText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-18 14:18:06--DATECREATED-->
+    <!--DATEUPDATED--2022-04-18 14:37:08--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>Zig-Zag or Spiral Traversal in Binary Tree(USE level order traversal)</h2>
+<anotepad><p>in zigzag we have to print first row from left to right and second row from right to left and third from left to right as it's ......</p>
+<hr />
+<p><br />use level order traversal and take one f integer initialise f=0; at starting then after check if (f%2!=0) means f==ODD so we have to reverse whole row and when f==EVEN so we don't need to reverse it and after we push vector into vector of vector at each row increase f++ <br /><br />Example :<br />Input: root = [3,9,20,null,null,15,7]<br />Output: [[3],[20,9],[15,7]]</p>
+<hr />
+<p><br /><br />class Solution {<br />public:<br />vector&lt;vector&gt; zigzagLevelOrder(TreeNode* root) {<br />int f=0;<br />vector&lt;vector&gt;ans;<br />if(!root)<br />{<br />return ans;<br />}<br />queue&lt;TreeNode*&gt;q;<br />q.push(root);<br />while(!q.empty())<br />{<br />int s=q.size();<br />vectorv;<br />for(int i=0;i&lt;s;i++)<br />{<br />TreeNode* node=q.front();<br />q.pop();<br />v.push_back(node-&gt;val);<br />if(node-&gt;left!=NULL)<br />{<br />q.push(node-&gt;left);<br />}<br />if(node-&gt;right!=NULL)<br />{<br />q.push(node-&gt;right);<br />}<br /><br />}<br />if(f%2!=0)<br />{<br />reverse(v.begin(),v.end());<br />}<br />f++;<br />ans.push_back(v);<br />}<br />return ans;<br />}<br />};</p></anotepad>
+</body>
+</html>

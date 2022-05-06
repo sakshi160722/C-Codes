@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Construct a Binary Tree from Preorder and Inorder Traversal </title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--b9mq6eyq--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-27 16:42:15--DATECREATED-->
+    <!--DATEUPDATED--2022-04-27 16:44:17--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>Construct a Binary Tree from Preorder and Inorder Traversal </h2>
+<anotepad><pre>Time Complexity:O(n)
+Space: O(n)
+
+ TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+        map<int,int>mp;
+        for(int i=0;i<inorder.size();i++)
+        {
+            mp[inorder[i]]=i;
+        }
+        
+         TreeNode* node=solve(preorder,0,preorder.size()-1,inorder,0,inorder.size()-1,mp);
+      
+        return node;
+    }
+     TreeNode* solve(vector<int>& preorder,int prestart,int preEnd,vector<int>& inorder,int instart,int inEnd,  map<int,int>&mp)
+     {
+         if(prestart>preEnd || instart>inEnd)
+         {
+             return NULL;
+         }
+         TreeNode* node=new TreeNode(preorder[prestart]);
+         int inroot=mp[node->val];
+         int left=inroot-instart;
+         node->left=solve(preorder,prestart+1,prestart+left,inorder,instart,inroot-1,mp);
+         node->right=solve(preorder,prestart+left+1,preEnd,inorder,inroot+1,inEnd,mp);
+         return node;
+     }</pre></anotepad>
+</body>
+</html>

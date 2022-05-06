@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Kth Smallest Element in a BST </title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--mxhjpbt6--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-29 07:48:03--DATECREATED-->
+    <!--DATEUPDATED--2022-04-29 14:08:06--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>Kth Smallest Element in a BST </h2>
+<anotepad><pre>Brute:
+Time:O(NlogN)
+space:O(n)
+----------------------------------  
+void solve(TreeNode* root,vector<int>&v)
+    {
+         if(!root)
+        {
+            return;
+        }
+        v.push_back(root->val);
+        solve(root->left,v);
+        solve(root->right,v);
+    }
+    int kthSmallest(TreeNode* root, int k) {
+      vector<int>v;
+       solve(root,v);
+        sort(v.begin(),v.end());
+       int t=v[k-1];
+        return t;
+            
+    }
+
+
+Better:------------------------------
+time:O(n)
+space:O(n)
+
+int better we dont need to sort a vector bcz if we take inorder traversal so in inorder elements are automatically in sorted order   
+void solve(Node* root,vector<int>&v)
+    {
+        if(!root)
+        {
+            return;
+        }
+  solve(root->left,v);
+        v.push_back(root->data);
+  solve(root->right,v);
+    }
+    int kthLargest(Node *root, int K)
+    {
+        vector<int>v;
+        solve(root,v);
+        int t=v[K-1];
+        if(K>v.size())
+        {
+            return -1;
+        }
+        return t;
+    }
+
+Optimal :----------------------------------
+time:O(n)
+space:O(1)
+
+
+
+
+</pre></anotepad>
+</body>
+</html>

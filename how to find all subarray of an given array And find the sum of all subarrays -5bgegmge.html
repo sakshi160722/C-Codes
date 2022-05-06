@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>how to find all subarray of an given array And find the sum of all subarrays </title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--5bgegmge--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-22 13:45:10--DATECREATED-->
+    <!--DATEUPDATED--2022-04-26 07:56:15--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>how to find all subarray of an given array And find the sum of all subarrays </h2>
+<anotepad><pre>what is subarray?  
+contiguous part of an array
+ex:   10 20 7 11 13 -2 5
+the subarrays: (10),(10,20),(10,20,7),(10,20,7,11),(20,7,11),(-2,5) etc...
+the not subarrays: (10 20 11)(10,7)
+ in O/p: we have to print all subarray 
+O(n^3)
+
+for(int i=0;i<n;i++)
+{
+for(int j=i;j<n;j++)
+{
+for(int s=i;s<=j;s++)
+{
+cout<<a[s]<<" ";
+}
+cout<<endl;
+}
+}
+
+ find the sum of all subarrays :
+
+int main(){
+int n;
+cin>>n;
+int a[n];
+for(int i=0;i<n;i++){
+cin>>a[i];
+}
+int total=0;
+for(int i=0;i<n;i++){
+total=total+a[i]*(n-i)*(i+1);
+}
+cout<<total<<endl;
+}
+</pre></anotepad>
+</body>
+</html>

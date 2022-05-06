@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>preorder (iterative approach)</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--ykmkftha--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-17 12:26:49--DATECREATED-->
+    <!--DATEUPDATED--2022-04-17 12:27:57--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>preorder (iterative approach)</h2>
+<anotepad><pre>preorder= root left right 
+
+vector<int> preorderTraversal(TreeNode* root) {
+      vector<int>ans;
+        if(!root)
+        {
+            return ans;
+        }
+        stack<TreeNode*>st;
+        st.push(root);
+        while(!st.empty())
+        {
+            TreeNode* node=st.top();
+            st.pop();
+            if(node->right!=NULL)
+            {
+                st.push(node->right);
+            }
+            if(node->left!=NULL)
+            {
+                st.push(node->left);
+            }
+            ans.push_back(node->val);
+        }
+        return ans;
+    }
+};
+
+
+https://leetcode.com/problems/binary-tree-preorder-traversal/ 
+
+Input: root = [1,null,2,3]
+Output: [1,2,3]
+</pre></anotepad>
+</body>
+</html>

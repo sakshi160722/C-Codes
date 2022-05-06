@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Flatten Binary Tree to Linked List(recursive) &&&& Flatten Binary Tree to Linked List(iterative)</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--teygys5p--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-28 13:36:27--DATECREATED-->
+    <!--DATEUPDATED--2022-04-28 16:02:53--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>Flatten Binary Tree to Linked List(recursive) &&&& Flatten Binary Tree to Linked List(iterative)</h2>
+<anotepad><pre>Brute: time=O(n),space:O(n^2) 
+ void flatten(TreeNode* root) {
+       stack<TreeNode*>st;
+        st.push(root);
+        while(!st.empty())
+        {
+            TreeNode* node=st.top();
+            st.pop();
+            if(node->right)
+            {
+                st.push(node->right);
+            }
+            if(node->left)
+            {
+                st.push(node->left);
+            }
+            while(!st.empty())
+            {
+                node->right=st.top();
+                node->left=NULL;
+            }
+    }
+
+Better:-------------------------------------------------------------------------------------------------------
+Time:O(n) && space:O(n)
+
+TreeNode* prev=NULL;
+    void flatten(TreeNode* root) {
+        if(!root)
+        {
+            return;
+        }
+        flatten(root->right);
+        flatten(root->left);
+        root->right=prev;
+        root->left=NULL;
+        prev=root;
+    }
+
+
+Optimal:----------------------------------------------------------------------------
+space:O(1)
+time:O(n)
+ void flatten(Node *root)
+    {
+        Node* cur=root;
+             while(cur!=NULL)
+             {
+                 if(cur->left!=NULL)
+                 {
+                     Node* prev=cur->left;
+                 
+                 while(prev->right)
+                 {
+                     prev=prev->right;
+                 }
+                 prev->right=cur->right;
+                 cur->right=cur->left;
+                 cur->left=NULL;
+                 }
+                 cur=cur->right;
+             }
+    }
+</pre></anotepad>
+</body>
+</html>

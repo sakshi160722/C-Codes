@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Inorder Successor in BST (by inorder and taking queue)</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--itrhc3pg--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-29 18:35:30--DATECREATED-->
+    <!--DATEUPDATED--2022-04-29 18:35:31--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>Inorder Successor in BST (by inorder and taking queue)</h2>
+<anotepad><pre>brute:-------------------
+time:O(n)
+space:O(n)
+ void solve(queue<Node*>&q,Node *root,Node *x)
+  {
+      if(!root)
+      {
+          return;
+      }
+      solve(q,root->left,x);
+      q.push(root);
+      solve(q,root->right,x);
+  }
+    // returns the inorder successor of the Node x in BST (rooted at 'root')
+    Node * inOrderSuccessor(Node *root, Node *x)
+    {
+        if(root==NULL)
+        {
+            return NULL;
+        }
+       queue<Node*>q;
+        solve(q,root,x);
+        Node* t=NULL;
+        while(q.front()!=x)
+        {
+            q.pop();
+        }
+        q.pop();
+        if(q.size()==0)
+        {
+            return t;
+        }
+        t=q.front();
+       
+        return t;
+    }</pre></anotepad>
+</body>
+</html>

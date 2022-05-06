@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> Reverse Linked List</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--g834gsy5--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-05-02 12:50:26--DATECREATED-->
+    <!--DATEUPDATED--2022-05-02 12:50:26--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2> Reverse Linked List</h2>
+<anotepad><pre>ListNode* reverseList(ListNode* head) {
+      ListNode* cur=head;
+        ListNode* node;
+        ListNode* prev=NULL;           //1->2->3->4->5 
+         while(cur!=NULL)
+         {
+           ListNode* node=cur->next; 
+             cur->next=prev;
+             prev=cur;
+             cur=node;
+            
+         }                                 //  NULL<-1<-2
+       return prev;
+        
+        
+    }</pre></anotepad>
+</body>
+</html>

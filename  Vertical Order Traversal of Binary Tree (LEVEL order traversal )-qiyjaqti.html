@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> Vertical Order Traversal of Binary Tree (LEVEL order traversal )</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--qiyjaqti--NUMBER-->
+    <!--TYPE--RichText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-18 18:37:54--DATECREATED-->
+    <!--DATEUPDATED--2022-04-19 11:33:48--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2> Vertical Order Traversal of Binary Tree (LEVEL order traversal )</h2>
+<anotepad><p>Vertical Order Traversal of Binary Tree : vertical order traversal means draw a vertical lines in tree and print elements in vertical order.</p>
+<ul>
+<li>for vertical lines write from top to bottom.</li>
+<li>use LEVEL order traversal techniqueue</li>
+</ul>
+<p>.........-2 -1 0 1 2...........</p>
+<p>move ascending order of the levels and ascending order of top to bottom&nbsp;</p>
+<p>Data structure: take map with map and multiset.&nbsp; map&lt;int,map&lt;int,multiset&lt;int&gt;&gt;&gt;mp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; verticals&nbsp; &nbsp; levels&nbsp; &nbsp; &nbsp; multinodes</p>
+<p>and take Queue data structure&nbsp; &nbsp;Q(node,vertical,level)</p>
+<hr />
+<p>&nbsp;vector&lt;vector&lt;int&gt;&gt; verticalTraversal(TreeNode* root) {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; map&lt;int,map&lt;int,multiset&lt;int&gt;&gt;&gt;mp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; queue&lt;pair&lt;TreeNode*,pair&lt;int,int&gt;&gt;&gt;q;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; q.push({root,{0,0}});</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; while(!q.empty())</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; auto&nbsp; n=q.front();</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; q.pop();</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; TreeNode* node=n.first;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int x=n.second.first;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int y=n.second.second;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mp[x][y].insert(node-&gt;val);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(node-&gt;left!=NULL)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; q.push({node-&gt;left,{x-1,y+1}});</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(node-&gt;right!=NULL)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; q.push({node-&gt;right,{x+1,y+1}});</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; vector&lt;vector&lt;int&gt;&gt;ans;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; for(auto p:mp)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; vector&lt;int&gt;v;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; for(auto t:p.second)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v.insert(v.end(),t.second.begin(),t.second.end());</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ans.push_back(v);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; return ans;</p>
+<p>&nbsp; &nbsp; }</p>
+<p>&nbsp;</p>
+<p><a title="leetcode" href="https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/submissions/">https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/submissions/</a></p></anotepad>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> k-th largest element in BST</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--6bj3hkaf--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-29 08:29:12--DATECREATED-->
+    <!--DATEUPDATED--2022-04-29 08:29:12--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2> k-th largest element in BST</h2>
+<anotepad><pre>better:
+time:O(n)
+space:O(n)
+
+just use reverse of inorder --------------- right root left
+
+ void solve(Node* root,vector<int>&v)
+    {
+        if(!root)
+        {
+            return;
+        }
+        solve(root->right,v);
+        v.push_back(root->data);
+        solve(root->left,v);
+    }
+    int kthLargest(Node *root, int K)
+    {
+        vector<int>v;
+        solve(root,v);
+        int t=v[K-1];
+        if(K>v.size())
+        {
+            return -1;
+        }
+        return t;
+    }</pre></anotepad>
+</body>
+</html>

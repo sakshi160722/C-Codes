@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Top K Frequent Elements</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--h5xickwd--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-05-03 09:08:56--DATECREATED-->
+    <!--DATEUPDATED--2022-05-03 09:08:56--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>Top K Frequent Elements</h2>
+<anotepad><pre> vector<int> topKFrequent(vector<int>& nums, int k) {
+     map<int,int>mp;
+        for(int i=0;i<nums.size();i++)
+        {
+            mp[nums[i]]++;
+        }
+        priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>>minheap;
+        for(auto it:mp)
+        {
+            minheap.push({it.second,it.first});
+            if(minheap.size()>k)
+            {
+                minheap.pop();
+            }
+        }
+        vector<int>v;
+        while(minheap.size()>0){
+            int mini=minheap.top().second;
+            minheap.pop();
+            v.push_back(mini);
+        }
+        return v;
+    }</pre></anotepad>
+</body>
+</html>

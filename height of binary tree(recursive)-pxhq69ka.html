@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>height of binary tree(recursive)</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--pxhq69ka--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-17 14:08:02--DATECREATED-->
+    <!--DATEUPDATED--2022-04-17 14:10:47--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>height of binary tree(recursive)</h2>
+<anotepad><pre> steps:1: int a variable store left count 
+2: int b variable store right count 
+3: 1+ because root is also added soo 1 for root  
+4:return 1+max(a,b);
+
+int maxDepth(TreeNode* root) {
+      if(!root)
+      {
+          return 0;
+      }
+        int a=maxDepth(root->left);
+        int b=maxDepth(root->right);
+        return 1+max(a,b);
+    }
+
+https://leetcode.com/problems/maximum-depth-of-binary-tree/submissions/ 
+
+Input: root = [3,9,20,null,null,15,7]
+Output: 3</pre></anotepad>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Right/Left View of Binary Tree(recursive) </title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--iy2c33w4--NUMBER-->
+    <!--TYPE--RichText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Private--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-19 13:22:37--DATECREATED-->
+    <!--DATEUPDATED--2022-04-19 13:50:10--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>Right/Left View of Binary Tree(recursive) </h2>
+<anotepad><p>Right/Left View of Binary Tree: last node of every level we have to print in output<br /><br />approach : use recursive but why recursive not level order (iterative).<br />whyn't level order==wrost case of level order stores half of nodes in queue so SC is soo more and bad.<br />and also iterative code is long than recursive .<br /><br /><br />In recursive use :-- reverse preorder traversal==(Root Right Left)</p>
+<p>function is looks like ==&gt; fn(root,level)</p>
+<hr />
+<pre style="margin-top: 10px; margin-bottom: 20px; padding: 15px 18px; color: var(--block-color); background: var(--block-bg); border-radius: 5px; overflow-x: hidden; max-width: 866px; white-space: pre-wrap; font-weight: 600; font-size: 14px; line-height: 20px;"><code style="margin: 0px; padding: 0px; font-weight: 400; letter-spacing: 0.23px; color: var(--block-color); background: var(--block-bg); font-size: 13px;"><span style="font-family: verdana, geneva, sans-serif;">ex==  2 35 10 2 3 5 2 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1<br /></span>o/p:</code>2 35 2</pre>
+<hr />
+<pre style="margin-top: 10px; margin-bottom: 20px; padding: 15px 18px; color: var(--block-color); background: var(--block-bg); border-radius: 5px; overflow-x: hidden; max-width: 866px; white-space: pre-wrap; font-weight: 600; font-size: 14px; line-height: 20px;"><span style="font-family: verdana, geneva, sans-serif;"><span style="color: rgba(0, 0, 0, 0); font-family: verdana, geneva, sans-serif;"><span style="font-size: 14px; white-space: pre-wrap;"><strong><span style="color: #ffffff; background-color: #993300;">CODE:  Left side view </span><br /><br /></strong></span></span><span style="font-family: verdana, geneva, sans-serif;"><span style="font-size: 14px; white-space: pre-wrap;"><strong>void solve(BinaryTreeNode&lt;int&gt; *root,vector&lt;int&gt;&amp;ans,int level)
+{
+	if(!root)
+	{
+		return;
+	}
+	if(level==ans.size())
+	{
+		ans.push_back(root-&gt;data);
+	}
+	solve(root-&gt;left,ans,level+1);
+	solve(root-&gt;right,ans,level+1);
+	
+}
+void printLeftView(BinaryTreeNode&lt;int&gt; *root)
+{
+	vector&lt;int&gt;ans; &nbsp; &nbsp;solve(root,ans,0);
+	for(int i=0;i&lt;ans.size();i++)
+	{
+		cout&lt;&lt;ans[i]&lt;&lt;" ";
+	}
+}</strong></span></span><span style="color: rgba(0, 0, 0, 0); font-family: verdana, geneva, sans-serif;"><span style="font-size: 14px; white-space: pre-wrap;"><strong><br /><br /></strong></span></span></span><span style="color: rgba(0, 0, 0, 0);"><span style="font-size: 14px; white-space: pre-wrap;"><strong><span style="background-color: #800000; color: #ffffff;">Code: Right side view</span><br /><br /></strong></span></span><span style="font-size: 14px; white-space: pre-wrap;"><strong>void solve(TreeNode *root,vector&lt;int&gt;&amp;ans,int level)
+{
+	if(!root)
+	{
+		return;
+	}
+	if(level==ans.size())
+	{
+		ans.push_back(root-&gt;val);
+	}
+        solve(root-&gt;right,ans,level+1);
+	solve(root-&gt;left,ans,level+1);
+	
+	
+}
+    vector&lt;int&gt; rightSideView(TreeNode* root) {
+     vector&lt;int&gt;ans;
+   solve(root,ans,0);
+	 return ans;
+    }</strong></span></pre></anotepad>
+</body>
+</html>

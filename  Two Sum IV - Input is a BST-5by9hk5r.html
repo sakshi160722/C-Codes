@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> Two Sum IV - Input is a BST</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--5by9hk5r--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-30 08:44:53--DATECREATED-->
+    <!--DATEUPDATED--2022-04-30 10:11:53--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2> Two Sum IV - Input is a BST</h2>
+<anotepad><pre>Brute:time:O(n)
+space:O(n) 
+
+void solve(vector<int>&v,TreeNode* root)
+    {
+        if(!root)
+        {
+            return;
+        }
+        solve(v,root->left);
+        v.push_back(root->val);
+        solve(v,root->right);
+    }
+    bool findTarget(TreeNode* root, int k) {
+       
+        vector<int>v;
+       
+        solve(v,root); 
+         int n=v.size();
+        int i=0;
+        int j=n-1;
+       while(i<j)
+       {
+           if(v[i]+v[j]==k)
+           {
+               return true;
+               
+           }
+          else if(v[i]+v[j]>k)
+           {
+               j--;
+           }
+           else{
+              i++;
+           }
+       }
+        return false;
+    }</pre></anotepad>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Boundary Traversal in Binary Tree</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--6qdqpa35--NUMBER-->
+    <!--TYPE--RichText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-18 14:37:29--DATECREATED-->
+    <!--DATEUPDATED--2022-04-19 06:34:13--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>Boundary Traversal in Binary Tree</h2>
+<anotepad><p>Print boundary elements for anti-clock wise (from left to right):</p>
+<p>Approach:</p>
+<ul>
+<li>Left boundary excluding leaf nodes</li>
+<li>Leaf nodes (we use inorder traversal NOT level order because in level order suppose right subtree leafs are end before than left subtree leafs ).so on that level order doesn't works.&nbsp;</li>
+<li>Right boundary in reverse order excluding the leaf nodes</li>
+</ul>
+<p>I/p:1 2 3 4 -1 5 -1 -1 -1 -1 -1<br />o/p:1 2 4 5 3</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<hr />
+<p><a title="leetcode" href="https://www.codingninjas.com/codestudio/problems/boundary-traversal_790725?utm_source=youtube&amp;utm_medium=affiliate&amp;utm_campaign=Striver_Tree_Videos">https://www.codingninjas.com/codestudio/problems/boundary-traversal_790725?utm_source=youtube&amp;utm_medium=affiliate&amp;utm_campaign=Striver_Tree_Videos</a></p>
+<hr />
+<p>class Solution {</p>
+<p>public:</p>
+<p>&nbsp;</p>
+<p>&nbsp; &nbsp; bool isleaf(Node *root)</p>
+<p>&nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; return !root-&gt;left&amp;&amp; !root-&gt;right;</p>
+<p>&nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp;void&nbsp; leftboun(Node *root, vector&lt;int&gt;&amp;ans)</p>
+<p>&nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; Node* cur=root-&gt;left;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; while(cur)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(!isleaf(cur))</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ans.push_back(cur-&gt;data);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(cur-&gt;left)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cur=cur-&gt;left;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; else{</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cur=cur-&gt;right;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; }</p>
+<p>&nbsp; void addleaves(Node *root,vector&lt;int&gt;&amp;ans)</p>
+<p>&nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; if(isleaf(root))</p>
+<p>&nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ans.push_back(root-&gt;data);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return;</p>
+<p>&nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; if(root-&gt;left)</p>
+<p>&nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; addleaves(root-&gt;left,ans);</p>
+<p>&nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; if(root-&gt;right)</p>
+<p>&nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; addleaves(root-&gt;right,ans);</p>
+<p>&nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; }</p>
+<p>&nbsp; void rightboun(Node *root,vector&lt;int&gt;&amp;ans)</p>
+<p>&nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; Node* cur=root-&gt;right;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;vector&lt;int&gt;v;</p>
+<p>&nbsp; &nbsp; &nbsp; while(cur)</p>
+<p>&nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(!isleaf(cur))</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v.push_back(cur-&gt;data);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(cur-&gt;right)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cur=cur-&gt;right;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; else{</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;cur=cur-&gt;left;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; for(int i=v.size()-1;i&gt;=0;i--)</p>
+<p>&nbsp; &nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ans.push_back(v[i]);</p>
+<p>&nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; }</p>
+<p>&nbsp; &nbsp; vector &lt;int&gt; boundary(Node *root)</p>
+<p>&nbsp; &nbsp; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; vector&lt;int&gt;ans;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;if(!root)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;{</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return ans;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;}</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;if(!isleaf(root))</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;{</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ans.push_back(root-&gt;data);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;}</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;leftboun(root,ans);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;addleaves(root,ans);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;rightboun(root,ans);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;return ans;</p>
+<p>&nbsp; &nbsp; }</p>
+<p>};</p></anotepad>
+</body>
+</html>

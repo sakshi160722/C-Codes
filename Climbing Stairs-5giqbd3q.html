@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Climbing Stairs</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--5giqbd3q--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-05-02 18:59:52--DATECREATED-->
+    <!--DATEUPDATED--2022-05-02 19:08:16--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>Climbing Stairs</h2>
+<anotepad><pre>  int fun(int in,vector<int>&dp,int n)
+    {
+        if(in==n-1)
+        {
+            return 1;
+        }
+        if(in==n-2)
+        {
+            return 2;
+        }
+        if(dp[in]!=-1)
+        {
+            return dp[in];
+        }
+        return (dp[in]=fun(in+1,dp,n)+fun(in+2,dp,n));
+    }
+    int climbStairs(int n) {
+        vector<int>dp(n+1,-1);
+        return fun(0,dp,n);
+    }</pre></anotepad>
+</body>
+</html>

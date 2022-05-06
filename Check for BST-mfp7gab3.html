@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Check for BST</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--mfp7gab3--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-29 14:08:38--DATECREATED-->
+    <!--DATEUPDATED--2022-04-29 14:57:43--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>Check for BST</h2>
+<anotepad><pre>bool isB(Node* root,int mini,int maxi)
+    {
+        if(!root)
+        {
+            return true;
+        }
+        if(root->data>=maxi || root->data<=mini)
+        {
+            return false;
+        }
+        return (isB(root->left,mini,root->data)&& isB(root->right,root->data,maxi));
+    }
+    bool isBST(Node* root) 
+    {
+     
+      return isB(root,INT_MIN,INT_MAX);
+    }</pre></anotepad>
+</body>
+</html>

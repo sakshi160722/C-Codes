@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Valid Parentheses (by stack)</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--cjewfb4a--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-30 10:12:26--DATECREATED-->
+    <!--DATEUPDATED--2022-04-30 10:12:26--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>Valid Parentheses (by stack)</h2>
+<anotepad><pre> bool isValid(string s) {
+        stack<char>st;
+        int i=0;
+        while(i<s.size())
+        {
+            if(s[i]=='{' || s[i]=='(' || s[i]=='[')
+            {
+                st.push(s[i]);
+            }
+            else{
+                if(st.empty())
+                {
+                    return false;
+                }
+                if((st.top()=='(' && s[i]==')') || (st.top()=='{' && s[i]=='}') || (st.top()=='[' && s[i]==']'))
+                {
+                    st.pop();
+                }
+                else{
+                    return false;
+                }
+            }
+            i++;
+        }
+        if(st.size()>0)
+        {
+            return false;
+        }
+        return true;
+    }</pre></anotepad>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>LCA in Binary Search Tree</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--b2gawf5h--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-29 14:58:08--DATECREATED-->
+    <!--DATEUPDATED--2022-04-29 14:58:08--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>LCA in Binary Search Tree</h2>
+<anotepad><pre> TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if(!root)
+            return NULL;
+       if(root->val>p->val && root->val>q->val)
+       {
+          return lowestCommonAncestor(root->left,p,q);
+       }
+        else if(root->val<p->val && root->val<q->val)
+        {
+            return lowestCommonAncestor(root->right,p,q);
+        }
+           return root;
+        
+    }</pre></anotepad>
+</body>
+</html>

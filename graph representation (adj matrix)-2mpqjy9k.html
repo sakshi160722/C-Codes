@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>graph representation (adj matrix)</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--2mpqjy9k--NUMBER-->
+    <!--TYPE--RichText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-22 08:12:51--DATECREATED-->
+    <!--DATEUPDATED--2022-05-06 04:10:54--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>graph representation (adj matrix)</h2>
+<anotepad><p>I/p: n ,m</p>
+<p>n=number of nodes</p>
+<p>m=number of edges&nbsp;</p>
+<p>1 2</p>
+<p>2 4</p>
+<p>2 3</p>
+<p>1 3</p>
+<p>3 4</p>
+<p>1 5</p>
+<p>5 3</p>
+<p>0&nbsp; &nbsp; 1&nbsp; &nbsp; &nbsp;2&nbsp; &nbsp;3&nbsp; &nbsp; 4&nbsp; &nbsp; 5</p>
+<table style="width: 18.914%; border-collapse: collapse; height: 108px;" border="1">
+<tbody>
+<tr style="height: 18px;">
+<td style="width: 16.6667%; height: 18px; text-align: left;">0</td>
+<td style="width: 16.6667%; height: 18px;">0</td>
+<td style="width: 16.6667%; height: 18px;">0</td>
+<td style="width: 16.6667%; height: 18px;">0</td>
+<td style="width: 16.6667%; height: 18px;">0</td>
+<td style="width: 16.6667%; height: 18px;">0</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 16.6667%; height: 18px;">0</td>
+<td style="width: 16.6667%; height: 18px;">0</td>
+<td style="width: 16.6667%; height: 18px;">1</td>
+<td style="width: 16.6667%; height: 18px;">1</td>
+<td style="width: 16.6667%; height: 18px;">0</td>
+<td style="width: 16.6667%; height: 18px;">1</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 16.6667%; height: 18px;">0</td>
+<td style="width: 16.6667%; height: 18px;">0</td>
+<td style="width: 16.6667%; height: 18px;">0</td>
+<td style="width: 16.6667%; height: 18px;">1</td>
+<td style="width: 16.6667%; height: 18px;">1</td>
+<td style="width: 16.6667%; height: 18px;">0</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 16.6667%; height: 18px;">0</td>
+<td style="width: 16.6667%; height: 18px;">0</td>
+<td style="width: 16.6667%; height: 18px;">0</td>
+<td style="width: 16.6667%; height: 18px;">0</td>
+<td style="width: 16.6667%; height: 18px;">1</td>
+<td style="width: 16.6667%; height: 18px;">0</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 16.6667%; height: 18px;">0</td>
+<td style="width: 16.6667%; height: 18px;">0</td>
+<td style="width: 16.6667%; height: 18px;">0</td>
+<td style="width: 16.6667%; height: 18px;">0</td>
+<td style="width: 16.6667%; height: 18px;">0</td>
+<td style="width: 16.6667%; height: 18px;">0</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 16.6667%; height: 18px;">0</td>
+<td style="width: 16.6667%; height: 18px;">0</td>
+<td style="width: 16.6667%; height: 18px;">0</td>
+<td style="width: 16.6667%; height: 18px;">1</td>
+<td style="width: 16.6667%; height: 18px;">0</td>
+<td style="width: 16.6667%; height: 18px;">&nbsp;0</td>
+</tr>
+</tbody>
+</table>
+<p>int main(){</p>
+<p>int n,m;</p>
+<p>cin&gt;&gt;n&gt;&gt;m;</p>
+<p>int adj[n+1][n+1];</p>
+<p>for(int i=0;i&lt;m;i++)</p>
+<p>{</p>
+<p>int u,v;</p>
+<p>cin&gt;&gt;u&gt;&gt;v;</p>
+<p>adj[u][v]=1;</p>
+<p>adj[v][u]=1;</p>
+<p>}</p>
+<p>return 0;</p>
+<p>}</p></anotepad>
+</body>
+</html>

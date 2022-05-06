@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Maximum Path Sum in Binary Tree </title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--payjxkgx--NUMBER-->
+    <!--TYPE--RichText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-18 12:05:29--DATECREATED-->
+    <!--DATEUPDATED--2022-04-18 13:33:24--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>Maximum Path Sum in Binary Tree </h2>
+<anotepad><p style="text-align: left;"><strong>Path : starts from any node A and go to node B that is path AND in the path single node appears only once!</strong><br /><strong>so find the maximum sum of all path between that two elements of that pat</strong></p>
+<p style="text-align: left;">formula: (node-&gt;val)+(left,right)</p>
+<p style="text-align: left;"><br />Example :-4 -2 3 -1 -1 1 1 -1 -1 -1 -1<br />o/p:5<br /><br />BRUTE: O(n^n)<br /><br />approach: find all possible paths b/w these two nodes and find maximum out of all but that is so brute takes more time.</p>
+<p style="text-align: left;">&nbsp;</p>
+<p style="text-align: left;"><a title="leetcode" href="https://leetcode.com/problems/binary-tree-maximum-path-sum/">https://leetcode.com/problems/binary-tree-maximum-path-sum/</a></p>
+<p style="text-align: left;">OPTIMAL:</p>
+<p>int solve(TreeNode&lt;int&gt;* root,int &amp;maxi)</p>
+<p>{</p>
+<p>if(!root)</p>
+<p>{</p>
+<p>return 0;</p>
+<p>}</p>
+<p>int lh=max(0,solve(root-&gt;left,maxi));</p>
+<p>int rh=max(0,solve(root-&gt;right,maxi));</p>
+<p>maxi=max(maxi,lh+rh+root-&gt;val);</p>
+<p>return max(lh,rh)+root-&gt;val;</p>
+<p>}</p>
+<p>int maxPathSum(TreeNode&lt;int&gt;* root)</p>
+<p>{</p>
+<p>int maxi=INT_MIN;</p>
+<p>solve(root,maxi);</p>
+<p>return maxi;</p>
+<p>}</p>
+<hr />
+<p style="text-align: left;">&nbsp;</p></anotepad>
+</body>
+</html>

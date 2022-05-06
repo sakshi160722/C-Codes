@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Diameter of Binary Tree</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--si594a7g--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-18 11:32:13--DATECREATED-->
+    <!--DATEUPDATED--2022-04-18 12:02:23--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>Diameter of Binary Tree</h2>
+<anotepad><pre>Diameter is a longest path
+defination :longest  path b/w any 2 nodes 
+Path does't need to pass via root.
+
+
+example :1 2 3 4 7 -1 -1 -1 -1 -1 -1
+o/p:3
+
+https://www.codingninjas.com/codestudio/problems/diameter-of-the-binary-tree_920552?source=youtube&campaign=Striver_Tree_Videos&utm_source=youtube&utm_medium=affiliate&utm_campaign=Striver_Tree_Videos
+
+Brute approach: find each left and right height from each node 
+BRUTE: time:O(n^n)
+
+class Solution {
+public:
+    int maxi=-1;
+    public:
+int height(TreeNode* root)
+{
+	if(!root)
+	{
+		return 0;
+	}
+	int lh=height(root->left);
+	int rh=height(root->right);
+	return 1+max(lh,rh);
+}
+    int diameterOfBinaryTree(TreeNode* root) {
+     
+       if(!root)
+	{
+		return 0;
+	}
+	int lh=height(root->left);
+	int rh=height(root->right);
+	maxi=max(maxi,lh+rh);
+	diameterOfBinaryTree(root->left);
+	diameterOfBinaryTree(root->right);
+	return maxi;
+    }
+};
+
+
+
+OPTIMAL:time:O(n)
+
+int height(TreeNode<int> *root ,int &maxi)
+{
+	if(!root)
+	{
+		return 0;
+	}
+	int lh=height(root->left,maxi);
+	int rh=height(root->right,maxi);
+	maxi=max(maxi,lh+rh);
+	return 1+max(lh,rh);
+}
+int diameterOfBinaryTree(TreeNode<int> *root)
+{
+	int maxi=0;
+	height(root,maxi);
+	return maxi;
+}
+</pre></anotepad>
+</body>
+</html>

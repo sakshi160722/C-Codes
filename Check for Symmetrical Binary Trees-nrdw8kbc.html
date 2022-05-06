@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Check for Symmetrical Binary Trees</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--nrdw8kbc--NUMBER-->
+    <!--TYPE--RichText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-19 13:53:10--DATECREATED-->
+    <!--DATEUPDATED--2022-04-19 14:40:47--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>Check for Symmetrical Binary Trees</h2>
+<anotepad><p>Check for Symmetrical Binary Trees: if it form mirror around the center so return YES else NO.</p>
+<hr />
+<p><a href="https://www.codingninjas.com/codestudio/problems/tree-symmetricity_630426?source=youtube&amp;campaign=Striver_Tree_Videos&amp;utm_source=youtube&amp;utm_medium=affiliate&amp;utm_campaign=Striver_Tree_Videos&amp;leftPanelTab=1">https://www.codingninjas.com/codestudio/problems/tree-symmetricity_630426?source=youtube&amp;campaign=Striver_Tree_Videos&amp;utm_source=youtube&amp;utm_medium=affiliate&amp;utm_campaign=Striver_Tree_Videos&amp;leftPanelTab=1</a></p>
+<hr />
+<p>bool solve(BinaryTreeNode&lt;int&gt;* root1,BinaryTreeNode&lt;int&gt;* root2)</p>
+<p>{</p>
+<p>if(root1==NULL || root2==NULL)</p>
+<p>{</p>
+<p>return root1==root2;</p>
+<p>}</p>
+<p>if(root1-&gt;data!=root2-&gt;data)</p>
+<p>{</p>
+<p>return false;</p>
+<p>}</p>
+<p>return solve(root1-&gt;left,root2-&gt;right) &amp;&amp; solve(root1-&gt;right,root2-&gt;left);</p>
+<p>&nbsp;</p>
+<p>}</p>
+<p>&nbsp;</p>
+<p>bool isSymmetric(BinaryTreeNode&lt;int&gt;* root)</p>
+<p>{</p>
+<p>return (root==NULL)||solve(root-&gt;left,root-&gt;right);</p>
+<p>}</p></anotepad>
+</body>
+</html>

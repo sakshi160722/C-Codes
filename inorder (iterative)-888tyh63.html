@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>inorder (iterative)</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--888tyh63--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-17 14:00:59--DATECREATED-->
+    <!--DATEUPDATED--2022-04-17 14:03:42--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>inorder (iterative)</h2>
+<anotepad><pre>left root right
+steps:1: make vector (ans) and stack(st)
+2: assign cur=root  and check if cur !null so push to stack and move cur to left 
+3: if there is no left of cur so firstly check (if st is empty) if yes ? then break: 
+4:otherwise assign st top to cur and push cur to ans vector and after pop that element from stack 
+5: and move cur to cur ->right
+6:return ans;
+
+ vector<int> inorderTraversal(TreeNode *root)
+    {
+       vector<int>ans;
+        if(!root)
+            return ans;
+        stack<TreeNode*>st;
+        TreeNode* cur=root;
+        while(true)
+        {
+            if(cur!=NULL)
+            {
+                st.push(cur);
+                cur=cur->left;
+            }
+            else{
+                if(st.empty())
+                {
+                    break;
+                }
+                cur=st.top();
+                st.pop();
+                ans.push_back(cur->val);
+                cur=cur->right;
+            }
+        }
+        return ans;
+    }</pre></anotepad>
+</body>
+</html>

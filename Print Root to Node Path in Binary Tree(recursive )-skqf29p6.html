@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Print Root to Node Path in Binary Tree(recursive )</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--skqf29p6--NUMBER-->
+    <!--TYPE--RichText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-20 08:23:43--DATECREATED-->
+    <!--DATEUPDATED--2022-04-20 10:31:17--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>Print Root to Node Path in Binary Tree(recursive )</h2>
+<anotepad><p>&nbsp;</p>
+<h1 class="title style-scope ytd-video-primary-info-renderer" style="margin: 0px; padding: 0px; border: 0px; background: #f9f9f9; line-height: 2.6rem; font-weight: 400; max-height: 5.2rem; overflow: hidden; -webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical; text-overflow: ellipsis; color: var(--ytd-video-primary-info-renderer-title-color,var(--yt-spec-text-primary)); font-family: Roboto, Arial, sans-serif; font-size: var(--ytd-video-primary-info-renderer-title-font-size,var(--yt-navbar-title-font-size,inherit)); transform: var(--ytd-video-primary-info-renderer-title-transform,none); text-shadow: var(--ytd-video-primary-info-renderer-title-text-shadow,none);">Print Root to Node Path in Binary Tree:</h1>
+<p>find path from root to that node : if path exits so print path</p>
+<p>approach traverse preorder recursive&nbsp;</p>
+<p style="box-sizing: inherit; margin: 0px 0px 1rem; word-break: break-word; white-space: break-spaces; color: #506b6a; font-family: Lato, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto; font-size: 14px; letter-spacing: 0.1px;">Input 1:</p>
+<p style="box-sizing: inherit; margin: 0px 0px 1rem; word-break: break-word; white-space: break-spaces; color: #506b6a; font-family: Lato, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto; font-size: 14px; letter-spacing: 0.1px;">&nbsp;</p>
+<p style="box-sizing: inherit; margin: 0px 0px 1rem; word-break: break-word; white-space: break-spaces; color: #506b6a; font-family: Lato, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto; font-size: 14px; letter-spacing: 0.1px;">&nbsp;</p>
+<p style="box-sizing: inherit; margin: 0px 0px 1rem; word-break: break-word; white-space: break-spaces; color: #506b6a; font-family: Lato, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto; font-size: 14px; letter-spacing: 0.1px;">&nbsp;</p>
+<p style="box-sizing: inherit; margin: 0px 0px 1rem; word-break: break-word; white-space: break-spaces; color: #506b6a; font-family: Lato, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto; font-size: 14px; letter-spacing: 0.1px;">&nbsp;</p>
+<p style="box-sizing: inherit; margin: 0px 0px 1rem; word-break: break-word; white-space: break-spaces; color: #506b6a; font-family: Lato, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto; font-size: 14px; letter-spacing: 0.1px;">&nbsp;</p>
+<p style="box-sizing: inherit; margin: 0px 0px 1rem; word-break: break-word; white-space: break-spaces; color: #506b6a; font-family: Lato, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto; font-size: 14px; letter-spacing: 0.1px;">&nbsp;</p>
+<p style="box-sizing: inherit; margin: 0px 0px 1rem; word-break: break-word; white-space: break-spaces; color: #506b6a; font-family: Lato, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto; font-size: 14px; letter-spacing: 0.1px;">&nbsp;</p>
+<pre style="font-family: monospace, monospace; font-size: 14px; box-sizing: inherit; word-break: break-word; white-space: break-spaces; color: #506b6a; letter-spacing: 0.1px;">A =<br style="box-sizing: inherit;" />
+           1
+         /   \
+        2     3
+       / \   / \
+      4   5 6   7</pre>
+<p style="box-sizing: inherit; margin: 0px 0px 1rem; word-break: break-word;">&nbsp;</p>
+<p style="box-sizing: inherit; margin: 0px 0px 1rem; word-break: break-word;">B = 5</p>
+<pre style="font-family: monospace, monospace; box-sizing: inherit; word-break: break-word; white-space: break-spaces; letter-spacing: 0.1px;">o/p:[1, 2, 5]<br /><br />2;</pre>
+<pre style="font-family: monospace, monospace; box-sizing: inherit; word-break: break-word; white-space: break-spaces; letter-spacing: 0.1px;"> A = 
+            1
+          /   \
+         2     3
+        / \ .   \
+       4   5 .   6</pre>
+<p style="box-sizing: inherit; margin: 0px 0px 1rem; word-break: break-word;">&nbsp;</p>
+<p style="box-sizing: inherit; margin: 0px 0px 1rem; word-break: break-word;">B = 1</p>
+<p style="box-sizing: inherit; margin: 0px 0px 1rem; word-break: break-word;">o/p:[2]</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div style="color: #d4d4d4; background-color: #1e1e1e; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;">
+<div><span style="color: #569cd6;">bool</span> solve1<span style="color: #dcdcdc;">(</span>TreeNode<span style="color: #dcdcdc;">*</span> A<span style="color: #dcdcdc;">,</span> vector<span style="color: #dcdcdc;">&lt;</span><span style="color: #569cd6;">int</span>&gt;&amp;ans<span style="color: #dcdcdc;">,</span><span style="color: #569cd6;">int</span> B<span style="color: #dcdcdc;">)</span></div>
+<div><span style="color: #dcdcdc;">{</span></div>
+<div>&nbsp; &nbsp; <span style="color: #569cd6;">if</span><span style="color: #dcdcdc;">(!</span>A<span style="color: #dcdcdc;">)</span></div>
+<div>&nbsp; &nbsp; <span style="color: #dcdcdc;">{</span></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #569cd6;">return</span> <span style="color: #569cd6;">false</span><span style="color: #dcdcdc;">;</span></div>
+<div>&nbsp; &nbsp; <span style="color: #dcdcdc;">}</span></div>
+<div>&nbsp; &nbsp; ans<span style="color: #dcdcdc;">.</span>push_back<span style="color: #dcdcdc;">(</span>A-&gt;val<span style="color: #dcdcdc;">);</span></div>
+<div>&nbsp; &nbsp; <span style="color: #569cd6;">if</span><span style="color: #dcdcdc;">(</span>A-&gt;val<span style="color: #dcdcdc;">==</span>B<span style="color: #dcdcdc;">)</span></div>
+<div>&nbsp; &nbsp; <span style="color: #dcdcdc;">{</span></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #569cd6;">return</span> <span style="color: #569cd6;">true</span><span style="color: #dcdcdc;">;</span></div>
+<div>&nbsp; &nbsp; <span style="color: #dcdcdc;">}</span></div>
+<div>&nbsp; &nbsp; <span style="color: #569cd6;">if</span><span style="color: #dcdcdc;">(</span>solve1<span style="color: #dcdcdc;">(</span>A-&gt;left<span style="color: #dcdcdc;">,</span>ans<span style="color: #dcdcdc;">,</span>B<span style="color: #dcdcdc;">)||</span></div>
+<div>&nbsp; &nbsp; solve1<span style="color: #dcdcdc;">(</span>A-&gt;right<span style="color: #dcdcdc;">,</span>ans<span style="color: #dcdcdc;">,</span>B<span style="color: #dcdcdc;">))</span></div>
+<div>&nbsp; &nbsp; <span style="color: #569cd6;">return</span> <span style="color: #569cd6;">true</span><span style="color: #dcdcdc;">;</span></div>
+<div>&nbsp; &nbsp; ans<span style="color: #dcdcdc;">.</span>pop_back<span style="color: #dcdcdc;">();</span></div>
+<div>&nbsp; &nbsp; <span style="color: #569cd6;">return</span> <span style="color: #569cd6;">false</span><span style="color: #dcdcdc;">;</span></div>
+<div><span style="color: #dcdcdc;">}</span></div>
+<br />
+<div>vector<span style="color: #dcdcdc;">&lt;</span><span style="color: #569cd6;">int</span><span style="color: #dcdcdc;">&gt;</span> Solution::solve<span style="color: #dcdcdc;">(</span>TreeNode<span style="color: #dcdcdc;">*</span> A<span style="color: #dcdcdc;">,</span> <span style="color: #569cd6;">int</span> B<span style="color: #dcdcdc;">)</span> <span style="color: #dcdcdc;">{</span></div>
+<div>&nbsp; &nbsp; vector<span style="color: #dcdcdc;">&lt;</span><span style="color: #569cd6;">int</span><span style="color: #dcdcdc;">&gt;</span>ans<span style="color: #dcdcdc;">;</span></div>
+<div>&nbsp; &nbsp; <span style="color: #569cd6;">if</span><span style="color: #dcdcdc;">(!</span>A<span style="color: #dcdcdc;">)</span></div>
+<div>&nbsp; &nbsp; <span style="color: #dcdcdc;">{</span></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #569cd6;">return</span> ans<span style="color: #dcdcdc;">;</span></div>
+<div>&nbsp; &nbsp; <span style="color: #dcdcdc;">}</span></div>
+<div>&nbsp; &nbsp; solve1<span style="color: #dcdcdc;">(</span>A<span style="color: #dcdcdc;">,</span>ans<span style="color: #dcdcdc;">,</span>B<span style="color: #dcdcdc;">);</span></div>
+<div>&nbsp; &nbsp; <span style="color: #569cd6;">return</span> ans<span style="color: #dcdcdc;">;</span></div>
+<div><span style="color: #dcdcdc;">}</span></div>
+</div></anotepad>
+</body>
+</html>

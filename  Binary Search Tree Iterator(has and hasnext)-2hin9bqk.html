@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> Binary Search Tree Iterator(has and hasnext)</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--2hin9bqk--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-30 06:25:44--DATECREATED-->
+    <!--DATEUPDATED--2022-04-30 08:44:45--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2> Binary Search Tree Iterator(has and hasnext)</h2>
+<anotepad><pre>time:O(n)
+space:O(n)
+
+ int i=0;
+     vector<int>v;
+     int t=0;
+    void solve(TreeNode* root)
+    {
+        if(!root)
+        {
+            return;
+        }
+        solve(root->left);
+        v.push_back(root->val);
+        solve(root->right);
+    }
+    BSTIterator(TreeNode* root) {
+       i=0;
+        solve(root);
+        
+    }
+    
+    int next() {
+        if(i<v.size())
+        {
+             t=v[i];
+        }
+        i++;
+        return t;
+    }
+    
+    bool hasNext() {
+        if(i<v.size())
+        {
+            return true;
+        }
+       
+            return false;
+        
+    }
+
+time:O(h)
+space:O(1)
+</pre></anotepad>
+</body>
+</html>

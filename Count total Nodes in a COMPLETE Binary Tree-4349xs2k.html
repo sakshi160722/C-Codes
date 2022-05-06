@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Count total Nodes in a COMPLETE Binary Tree</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--4349xs2k--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-27 12:45:23--DATECREATED-->
+    <!--DATEUPDATED--2022-04-27 16:41:48--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>Count total Nodes in a COMPLETE Binary Tree</h2>
+<anotepad><pre>Brute approach:   time=O(n),space=O(h)   
+
+void inorder(TreeNode* root, int &cnt)
+    {
+        if(root==NULL)
+        {
+            return;
+        }
+         cnt++;
+         inorder(root->left,cnt);
+         inorder(root->right,cnt);
+    }
+    
+    int countNodes(TreeNode* root) {
+        int cnt=0;
+        inorder(root,cnt);
+        return cnt;
+    }
+
+OPTIMAL:--------- time =O(O(Log^2 N)  space: log(n)
+  int leftheight(TreeNode* root)
+    {
+        int height=0;
+        while(root)
+        {
+            height++;
+            root=root->left;
+        }
+        return height;
+    }
+    int rightheight(TreeNode* root)
+    {
+        int height=0;
+        while(root)
+        {
+            height++;
+            root=root->right;
+        }
+        return height;
+    }
+    int countNodes(TreeNode* root) {
+        if(!root)
+        {
+            return 0;
+        }
+    
+        int lh=leftheight(root);
+        int rh=rightheight(root);
+        if(lh==rh)
+        {
+            int t=pow(2,lh);
+            return t-1;
+        }
+        return 1+countNodes(root->left)+countNodes(root->right);
+    }</pre></anotepad>
+</body>
+</html>

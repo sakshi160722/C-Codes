@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>LCA</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--ygqf2nc4--NUMBER-->
+    <!--TYPE--RichText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-20 10:31:30--DATECREATED-->
+    <!--DATEUPDATED--2022-04-20 10:36:32--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>LCA</h2>
+<anotepad><p>TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {<br />if(!root || root==p || root==q)<br />{<br />return root;<br />}<br />TreeNode* n1= lowestCommonAncestor(root-&gt;left,p,q);<br />TreeNode* n2= lowestCommonAncestor(root-&gt;right,p,q);<br /><br />if(n1==NULL)<br />{<br />return n2;<br />}</p>
+<hr />
+<p><a title="leetcode" href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/submissions/">https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/submissions/</a><br />else if(n2==NULL){<br />return n1;<br />}<br />else{<br />return root;<br />}<br />}</p></anotepad>
+</body>
+</html>

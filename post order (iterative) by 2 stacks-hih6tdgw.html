@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>post order (iterative) by 2 stacks</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--hih6tdgw--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-17 12:30:00--DATECREATED-->
+    <!--DATEUPDATED--2022-04-17 13:03:20--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>post order (iterative) by 2 stacks</h2>
+<anotepad><pre>postorder=left right root
+
+steps:1  makes 2 stacks and one vector 
+2: push stack 1 to root and then find that st.top have left or right if have then push to that stack and push st.top to another stack .
+3: while stack 2 not empty pop all elements and push to vector 
+4: return vector.
+
+
+  vector<int> postorderTraversal(TreeNode* root) {
+     stack<TreeNode*>st1;
+     stack<TreeNode*>st2;
+        vector<int>ans;
+        if(!root)
+        {
+            return ans;
+        }
+     st1.push(root);
+        while(!st1.empty())
+        {
+            TreeNode* node=st1.top();
+            st1.pop();
+          
+            if(node->left!=NULL)
+            {
+                st1.push(node->left);
+            }
+             if(node->right!=NULL)
+            {
+                st1.push(node->right);
+            }
+              st2.push(node);
+        }
+        while(!st2.empty())
+        {
+            TreeNode* node1=st2.top();
+            st2.pop();
+            ans.push_back(node1->val);
+        }
+        return ans;
+    }
+
+
+Input: root = [1,null,2,3]
+Output: [3,2,1]
+
+https://leetcode.com/problems/binary-tree-postorder-traversal/ </pre></anotepad>
+</body>
+</html>

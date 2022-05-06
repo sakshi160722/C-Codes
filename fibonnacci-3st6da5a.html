@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>fibonnacci</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--3st6da5a--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-05-02 17:51:32--DATECREATED-->
+    <!--DATEUPDATED--2022-05-02 18:59:26--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>fibonnacci</h2>
+<anotepad><pre>Most Optimal Solution -----------------------------------
+time:O(n)
+space:O(1)
+
+#include <iostream>
+using namespace std;
+
+int main() {
+int n;
+cin>>n;
+int prev=1;
+int prev2=0;
+for(int i=1;i<=n;i++)
+{
+    int cur=prev+prev2;
+   
+    cout<<prev2<<" ";
+     prev2=prev;
+    prev=cur;
+}
+
+	return 0;
+}
+</pre></anotepad>
+</body>
+</html>

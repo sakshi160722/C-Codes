@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Balanced Binary Tree </title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--i33xa626--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-17 17:07:11--DATECREATED-->
+    <!--DATEUPDATED--2022-04-17 17:07:41--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>Balanced Binary Tree </h2>
+<anotepad><pre>
+
+
+int height(TreeNode* root)
+    {
+     if(!root)
+	{
+		return 0;
+	}
+	int lh=height(root->left);
+	if(lh==-1)
+	{
+		return -1;
+	}
+	int rh=height(root->right);
+	if(rh==-1)
+	{
+		return -1;
+	}
+	if(abs(lh-rh)>1)
+	{
+		return -1;
+	}
+	return max(lh,rh)+1;   
+    }
+    bool isBalanced(TreeNode* root) {
+      return height(root)!=-1;
+    }
+
+
+https://leetcode.com/problems/balanced-binary-tree/submissions/
+
+Input: root = [3,9,20,null,null,15,7]
+Output: true</pre></anotepad>
+</body>
+</html>

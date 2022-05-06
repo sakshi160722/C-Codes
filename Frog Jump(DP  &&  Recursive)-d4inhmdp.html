@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Frog Jump(DP  &&  Recursive)</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--d4inhmdp--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-05-03 17:21:01--DATECREATED-->
+    <!--DATEUPDATED--2022-05-03 17:45:02--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>Frog Jump(DP  &&  Recursive)</h2>
+<anotepad><pre>Brute:------------------recursive 
+
+int fun(int in,vector<int> &heights)
+{
+	if(in==0)
+	{
+		return 0;
+	}
+// 	if(dp[in]!=-1)
+// 	{
+// 		return dp[in];
+// 	}
+	int left=fun(in-1,heights)+abs(heights[in]-heights[in-1]);
+	int right=INT_MAX;
+	if(in>1){
+	 right=fun(in-2,heights)+abs(heights[in]-heights[in-2]);
+	}
+	return min(left,right);
+}
+int frogJump(int n, vector<int> &heights)
+{
+//     vector<int>dp(n+1,-1);
+	
+	return fun(n-1,heights);
+}
+
+
+OPTIMAL:-----------------
+Dp:--------
+#include<bits/stdc++.h>
+int fun( vector<int>&dp,int in,vector<int> &heights)
+{
+	if(in==0)
+	{
+		return 0;
+	}
+	if(dp[in]!=-1)
+	{
+		return dp[in];
+	}
+	int left=fun(dp,in-1,heights)+abs(heights[in]-heights[in-1]);
+	int right=INT_MAX;
+	if(in>1){
+	 right=fun(dp,in-2,heights)+abs(heights[in]-heights[in-2]);
+	}
+	return dp[in]=min(left,right);
+}
+int frogJump(int n, vector<int> &heights)
+{
+   vector<int>dp(n+1,-1);	
+	return fun(dp,n-1,heights);
+}
+
+
+
+Most OPTIMAL:--------------------------Space optimaization----------
+time:O(n)
+space;O(1)
+
+#include<bits/stdc++.h>
+int frogJump(int n, vector<int> &heights)
+{
+	int prev=0;
+	int prev2=0;
+	for(int i=1;i<n;i++)
+	{
+		int left=prev+abs(heights[i]-heights[i-1]);
+		int right=INT_MAX;
+		if(i>1)
+		{
+			right=prev2+abs(heights[i]-heights[i-2]);
+		}
+		int cur=min(left,right);
+		prev2=prev;
+		prev=cur;
+	}
+	return prev;
+}
+	</pre></anotepad>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Construct the Binary Tree from Postorder and Inorder Traversal</title>
+    <style type="text/css">
+        body, table { font-family: Helvetica, Arial, sans-serif; font-size: 13px; }
+        a { color: #006DBA; }
+    </style>
+    <!--NUMBER--249fpq7g--NUMBER-->
+    <!--TYPE--PlainText--TYPE-->
+    <!--PERMISSION--Readonly--PERMISSION-->
+    <!--ACCESS--Public--ACCESS-->
+    <!--PASSWORD----PASSWORD-->
+    <!--STATUS--Active--STATUS-->
+    <!--QUICKEDIT--False--QUICKEDIT-->
+    <!--QUICKEDITPASSWORD----QUICKEDITPASSWORD-->
+    <!--DATECREATED--2022-04-27 17:25:40--DATECREATED-->
+    <!--DATEUPDATED--2022-04-27 19:05:44--DATEUPDATED-->
+    <!--LABELS----LABELS-->
+</head>
+<body>
+<h2>Construct the Binary Tree from Postorder and Inorder Traversal</h2>
+<anotepad><pre> TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
+         map<int,int>mp;
+        for(int i=0;i<inorder.size();i++)
+        {
+            mp[inorder[i]]=i;
+        }
+        
+         TreeNode* node=solve(postorder,postorder.size()-1,0,inorder,0,inorder.size()-1,mp);
+      
+        return node;
+    }
+      TreeNode* solve(vector<int>& postorder,int poststart,int postEnd,vector<int>& inorder,int instart,int inEnd,  map<int,int>&mp)
+     {
+         if(poststart<postEnd || instart>inEnd)
+         {
+             return NULL;
+         }
+         TreeNode* node=new TreeNode(postorder[poststart]);
+         int inroot=mp[node->val];
+         int left=inEnd-inroot;
+         node->right=solve(postorder,poststart-1,poststart-left,inorder,inroot+1,inEnd,mp);
+         node->left=solve(postorder,poststart-left-1,postEnd,inorder,instart,inroot-1,mp);
+         return node;
+     }</pre></anotepad>
+</body>
+</html>
